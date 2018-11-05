@@ -8,7 +8,9 @@ import org.springframework.web.bind.annotation.RestController;
 public class PaymentController {
 	
 	@RequestMapping("/makepayment/{cardId}")
-	public String makePayment(@PathVariable int cardId){
+	public String makePayment(@PathVariable int cardId) throws InterruptedException{
+		
+		Thread.sleep(4000);
 		
 		System.out.println("CardId : " + cardId);
 		
