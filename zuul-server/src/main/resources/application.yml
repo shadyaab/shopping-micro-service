@@ -1,8 +1,0 @@
-
-zuul:
-  ignoredServices: '*'
-  routes:
-    cart-service:
-      path: /cart1/**
-      service-id: cart-service
-    

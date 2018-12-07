@@ -1,0 +1,26 @@
+server:
+  port: "8763"
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+    register-with-eureka: true
+    fetch-registry: true
+    
+   
+zuul:
+  ignoredServices: '*'
+  routes:
+    cart-service:
+      path: /cart/**
+      service-id: cart-service
+    
+    
+    
+#zuul.ignored-services='cart-service'
+#zuul.routes.cart-service=/cart/**
+
+
+#zuul.ignored-services='*' 
+#zuul.routes.cart-service=/cart/**
