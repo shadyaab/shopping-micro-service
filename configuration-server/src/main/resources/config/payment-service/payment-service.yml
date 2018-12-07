@@ -1,7 +1,7 @@
-server.port: "7000"
+server.port: "7001"
 spring.h2.console.enabled: "true"
 
-spring.datasource.url: "jdbc:h2:tcp://localhost/~/cart"
+spring.datasource.url: "jdbc:h2:tcp://localhost/~/payment"
 spring.datasource.username: "sa"
 spring.datasource.password: 
 spring.datasource.driver-class-name: "org.h2.Driver"
