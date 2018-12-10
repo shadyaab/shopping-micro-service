@@ -11,6 +11,7 @@ spring:
           search-locations: file:///C:/Users/sakhtar/git/shopping-micro-service/configuration-server/src/main/resources/config/cart-service,
                             file:///C:/Users/sakhtar/git/shopping-micro-service/configuration-server/src/main/resources/config/payment-service,
                             file:///C:/Users/sakhtar/git/shopping-micro-service/configuration-server/src/main/resources/config/zuul-server,
-                            file:///C:/Users/sakhtar/git/shopping-micro-service/configuration-server/src/main/resources/config/eureka-server
+                            file:///C:/Users/sakhtar/git/shopping-micro-service/configuration-server/src/main/resources/config/eureka-server,
+                            file:///C:/Users/sakhtar/git/shopping-micro-service/configuration-server/src/main/resources/config/hystrix-dashboard
                             
 
