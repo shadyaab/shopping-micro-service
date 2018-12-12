@@ -1,6 +1,24 @@
 server:
   port: 8762
-  
+
+
+#-----Using file path---------# 
+#spring:
+#  profiles:
+#    active: native
+#  cloud:
+#    config:
+#      server:
+#        native:
+#          search-locations: file:///C:/Users/sakhtar/git/shopping-micro-service/configuration-server/src/main/resources/config/cart-service,
+#                            file:///C:/Users/sakhtar/git/shopping-micro-service/configuration-server/src/main/resources/config/payment-service,
+#                            file:///C:/Users/sakhtar/git/shopping-micro-service/configuration-server/src/main/resources/config/zuul-server,
+#                            file:///C:/Users/sakhtar/git/shopping-micro-service/configuration-server/src/main/resources/config/eureka-server,
+#                            file:///C:/Users/sakhtar/git/shopping-micro-service/configuration-server/src/main/resources/config/hystrix-dashboard
+
+
+
+#-----Using file path with wilcard for all the application---------# 
 spring:
   profiles:
     active: native
@@ -8,10 +26,35 @@ spring:
     config:
       server:
         native:
-          search-locations: file:///C:/Users/sakhtar/git/shopping-micro-service/configuration-server/src/main/resources/config/cart-service,
-                            file:///C:/Users/sakhtar/git/shopping-micro-service/configuration-server/src/main/resources/config/payment-service,
-                            file:///C:/Users/sakhtar/git/shopping-micro-service/configuration-server/src/main/resources/config/zuul-server,
-                            file:///C:/Users/sakhtar/git/shopping-micro-service/configuration-server/src/main/resources/config/eureka-server,
-                            file:///C:/Users/sakhtar/git/shopping-micro-service/configuration-server/src/main/resources/config/hystrix-dashboard
+          search-locations: file:///C:/Users/sakhtar/git/shopping-micro-service/configuration-server/src/main/resources/config/{application}
+
+
+
+#-----Using Class path---------#
+#spring:
+#  profiles:
+#    active: native
+#  cloud:
+#    config:
+#      server:
+#        native:
+#          search-locations: classpath:config/cart-service, 
+#                            classpath:config/payment-service,
+#                            classpath:config/zuul-server,
+#                            classpath:config/eureka-server,
+#                            classpath:config/hystrix-dashboard
+    
                             
+
+#-----Using git---------#
+#spring:
+#  cloud:
+#    config:
+#      server:
+#        git: 
+#          uri: https://github.com/shadyaab/shopping-micro-service/
+#          search-paths: configuration-server/src/main/resources/config/{application}
+          
+          
+          
 

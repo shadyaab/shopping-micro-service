@@ -2,11 +2,12 @@ server.port: "7000"
 spring.h2.console.enabled: "true"
 
 spring.datasource.url: "jdbc:h2:tcp://localhost/~/cart"
-spring.datasource.username: "sa"
+spring.datasource.username: "sa1"
 spring.datasource.password: 
 spring.datasource.driver-class-name: "org.h2.Driver"
 spring.jpa.database-platform: "org.hibernate.dialect.H2Dialect"
 
+cart.name: shadyaab1
 
 eureka:
   client:

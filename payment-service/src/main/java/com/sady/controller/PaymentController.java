@@ -4,6 +4,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.sady.bean.Card;
+
 @RestController
 public class PaymentController {
 	
@@ -16,5 +18,18 @@ public class PaymentController {
 		
 		return "Payment Done Successfully for carId : " + cardId ;
 	}
+	
+	
+	@RequestMapping(value= "/card/{cardId}")
+	public Card getCardDetails(@PathVariable int cardId){
+		
+		Card card = new Card();
+		card.setCardId(cardId);
+		card.setCardName("ICICI");
+		card.setExpYear(2021);
+		
+		return card;
+	}
+	
 	
 }

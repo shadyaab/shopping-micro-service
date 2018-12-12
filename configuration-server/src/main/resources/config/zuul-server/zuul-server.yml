@@ -8,14 +8,33 @@ eureka:
     register-with-eureka: true
     fetch-registry: true
     
-   
+
+# http://localhost:8763/api/cart/buy
+# It will ignore default/automated routing for cart-service and follow the 
+# below routing 
+# prefix - it will prefix url for all the service 
 zuul:
-  ignoredServices: '*'
+  ignoredServices: 'cart-service'
+  prefix: /api
   routes:
-    cart-service:
-      path: /cart/**
-      service-id: cart-service
+    cart-service: /cart/**
     
+ 
+# Manual mapping of routes using static URLs
+#zuul:
+#  route:
+#    cart-service
+#      path:  
+#      url: http://localhost:7002
+
+   
+   
+#zuul:
+#  ignoredServices: '*'
+#  routes:
+#    cart-service:
+#      path: /cart/**
+#      service-id: cart-service
     
     
 #zuul.ignored-services='cart-service'
