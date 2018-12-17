@@ -20,12 +20,12 @@ zuul:
     cart-service: /cart/**
     
  
-# Manual mapping of routes using static URLs
+## Manual mapping of routes using static URLs                       ** Need to check later
 #zuul:
 #  route:
-#    cart-service
-#      path:  
-#      url: http://localhost:7002
+#    external-service:
+#      path: /comment-service/**
+#      url: http://localhost:7004
 
    
    
@@ -43,3 +43,11 @@ zuul:
 
 #zuul.ignored-services='*' 
 #zuul.routes.cart-service=/cart/**
+
+
+#Configure default timeout time for all the request and for 
+#For specific service replace default with service name
+hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds: 2500
+
+
+
