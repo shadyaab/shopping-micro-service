@@ -25,7 +25,30 @@
         
     Zuul uses below mechanism
         - Automated mapping of routes via service discovery
+            - Default routing
         - Manual mapping of routes via service discovery
         - Manual mapping of routes using statis URLs
+            - Used to route services that aren't managed by Eureka server
+           
+    Filters
+        - Pre Filter
+            - It cannot redirect to another service or endpoint
+        - Post Filter
+        - Route Filter
+            - Used for dynamic routing
+            - Used to route between two different version of same service.
+            - It can dynamically route service outside zuul.
+            - It doesn't redirect HTTP call, instead terminate the previous one and create the new one.
+            - If it cant redirect to new route, it will redirect to orignal target service.
+            
+    *Correlation Id : 
+        - Its is unique id that gets carried accross all the microservices on request.
+        - It allows to trace the chain of events that happen through of series of microservice call.
+        
+        
+            
+            
+            
+                
      
     
