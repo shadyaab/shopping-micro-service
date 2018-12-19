@@ -3,12 +3,14 @@ package com.sady.zuulsvr.prefilter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import com.netflix.zuul.ZuulFilter;
 import com.netflix.zuul.context.RequestContext;
 import com.netflix.zuul.exception.ZuulException;
 import com.sady.zuulsvr.utils.FilterUtils;
 
+@Component
 public class TrackingFilter extends ZuulFilter{
 	
 	private static final int FILTER_ORDER = 1;
@@ -20,7 +22,7 @@ public class TrackingFilter extends ZuulFilter{
 
 	@Override
 	public String filterType() {
-		return filterUtils.PRE_FILTER_TYPE;
+		return FilterUtils.PRE_FILTER_TYPE;
 	}
 	
 	@Override
@@ -47,25 +49,22 @@ public class TrackingFilter extends ZuulFilter{
 	@Override
 	public Object run() throws ZuulException {
 		
+		System.out.println("Inside Pre-filter");
+		
 		if(isCorrelationIdPresent()){
 			logger.debug("tmx-correlation-id found in tracking filter {}.", filterUtils.getCorrelationId());
+			System.out.println("tmx-correlation-id found in tracking filter " +  filterUtils.getCorrelationId());
 		} else {
 			filterUtils.setCorrelationId(generateCorrelationId());
 			logger.debug("tmx-correlation-id is generated in tracking filter {}.", filterUtils.getCorrelationId());
+			System.out.println("tmx-correlation-id is generated in tracking filter " +  filterUtils.getCorrelationId());
 		}
 		
 		RequestContext ctx = RequestContext.getCurrentContext();
 		logger.debug("Processing incoming request {}.", ctx.getRequest().getRequestURI());
-		
+		System.out.println("Processing incoming request " +  ctx.getRequest().getRequestURI());
+
 		return null;
 	}
-
-	
-
-	
-
-	
-	
-	
 
 }

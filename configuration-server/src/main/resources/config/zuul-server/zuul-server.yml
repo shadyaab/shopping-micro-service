@@ -13,11 +13,11 @@ eureka:
 # It will ignore default/automated routing for cart-service and follow the 
 # below routing 
 # prefix - it will prefix url for all the service 
-zuul:
-  ignoredServices: 'cart-service'
-  prefix: /api
-  routes:
-    cart-service: /cart/**
+#zuul:
+#  ignoredServices: 'cart-service'
+#  prefix: /api
+#  routes:
+#    cart-service: /cart/**
     
  
 ## Manual mapping of routes using static URLs                       ** Need to check later
@@ -47,7 +47,12 @@ zuul:
 
 #Configure default timeout time for all the request and for 
 #For specific service replace default with service name
-hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds: 2500
-
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 10000
 
 
