@@ -1,5 +1,7 @@
 package com.sady.controller;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,6 +16,8 @@ import com.sady.service.ServiceDiscoveryService;
 
 @RestController
 public class CartController {
+	
+	private Logger logger = LoggerFactory.getLogger(CartController.class);
 	
 	@Autowired
 	private RestTemplate restTemplate;
@@ -98,9 +102,12 @@ public class CartController {
 	@RequestMapping("/getCard/feign")
 	public Card getCardDetailsUsingFeign(){
 		
+		logger.info("Inside getCardDetailsUsingFeign method of cart controller" );
+		
 		Card card = service.fetchCardDetails(2, "feign");
 		System.out.println(card);
 		
+		logger.info("Exceution of getCardDetailsUsingFeign method ends" );
 		return card;
 	}
 	

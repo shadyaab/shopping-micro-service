@@ -21,7 +21,7 @@ public class AuthenticationController {
 		return userInfo;
 	}
 	
-	@RequestMapping("/user1")
+	@RequestMapping(value="/user1", produces = "application/json")
 	public String user(){
 		
 		return "hello";
